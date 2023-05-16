@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23.05.16 스크립트 연습</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form class="container-fluid row">
+        <fieldset class="inputtype p-5 col-3">
+            <h3>input Type</h3>
+            <hr>
+        <label for="name" class="form-label mt-3">이름</label>
+        <input type="text" class="form-control" id="name" placeholder="이름 입력해주세요">
+        </fieldset>
+
+        <fieldset class="select p-5 col-3">
+            <h3>Select</h3>
+            <hr>
+            <select name="fruits" id="fruits"  class="form-select">
+                <option value="" selected>과일고르기</option>
+                <option value="Banana">바나나</option>
+                <option value="Apple">사과</option>
+                <option value="Grape">포도</option>
+                <option value="Orange">오렌지</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="checkbox p-5 col-3">
+            <h3>CheckBox 성별</h3>
+            <hr>
+            <input class="gender" type="checkbox" value="Male" id="male" name="gender">
+            <label for="male">
+              남자
+            </label><br>
+            <input class="gender" type="checkbox" value="Female" id="female" name="gender">
+            <label for="female">
+              여자
+            </label><br>
+            <input class="gender" type="checkbox" value="etc" id="etc" name="gender">
+            <label for="etc">
+              기타
+            </label><br>
+            <button type="button" id="checkbox_btn" class="btn btn-success mt-5">확인</button>
+        </fieldset>
+
+        <fieldset class="radio p-5 col-3">
+            <h3>Radio 통신사</h3>
+            <hr>
+            <input class="telecom" type="radio" value="SKT" id="SKT" name="telecom">
+            <label for="SKT">
+              SKT
+            </label>
+            <br>
+            <input class="telecom" type="radio" value="KT" id="KT" name="telecom">
+            <label for="KT">
+              KT
+            </label>
+            <br>
+            <input class="telecom" type="radio" value="LG" id="LG" name="telecom">
+            <label for="LG">
+              U+
+            </label><br>
+            <button type="button" id="radio_btn" class="btn btn-success mt-5">확인</button>
+        </fieldset>
+        
+        	<div class="container">
+				<button type="button" id="btnJquery" class="btn btn-success">Jquery</button>
+         		<button type="button" id="btnJavascript" class="btn btn-success">Javascript</button>
+			</div>
+    </form>
+	<script type="text/javascript">
+		$(function(){
+			$("#btnJquery").on("click",function(){
+				alert($("#name").val());
+				$("#name").val("전지현");
+				alert($("#name").val());
+				
+
+				
+			});				
+
+		});
+	</script>
+</body>
+</html>

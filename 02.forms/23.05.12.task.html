@@ -14,8 +14,8 @@
         <fieldset class="inputtype p-5 col-3">
             <h3>input Type</h3>
             <hr>
-        <label for="textarea" class="form-label mt-3">텍스트</label>
-        <input type="text" class="form-control" id="textarea" placeholder="텍스트를 입력해주세요">
+        <label for="name" class="form-label mt-3">텍스트</label>
+        <input type="text" class="form-control" id="name" placeholder="텍스트를 입력해주세요">
         <label for="numarea" class="form-label mt-3">숫자</label>
         <input type="number" class="form-control" id="numarea" placeholder="숫자를 입력해주세요">
         <label for="emailarea" class="form-label mt-3">이메일</label>
@@ -39,8 +39,8 @@
             <h3>Select</h3>
             <hr>
             <select name="fruits" id="fruits"  class="form-select">
-                <option value="" selected>과일고르기</option>
-                <option value="Banana">바나나</option>
+                <option value="">과일고르기</option>
+                <option value="Banana" selected>바나나</option>
                 <option value="Apple">사과</option>
                 <option value="Grape">포도</option>
                 <option value="Orange">오렌지</option>
@@ -100,8 +100,108 @@
             </label><br>
             <button type="button" id="radio_btn" class="btn btn-success mt-5">확인</button>
         </fieldset>
+        
+        	<div class="container">
+				<button type="button" id="btnJquery" class="btn btn-success">Jquery</button>
+         		<button type="button" id="btnJavascript" class="btn btn-success">Javascript</button>
+			</div>
     </form>
-	<script src="script/inputPractice_script.js"></script>
+	<!--<script src="script/inputPractice_script.js"></script>-->
 	<!--<script src="script/inputPractice_query.js"></script>-->
+	<!--선생님 코드-->
+	<script>
+		$("#btnJquery").on("click", function(){
+			
+    		// input type=text    		
+   			alert( $.trim($("#name").val()) );
+    		$("#name").val("전지현")
+    		alert( $.trim($("#name").val()) );
+    	
+    		// select
+    		alert("과일: " + $("#fruits").val());
+     		$("#fruits").val("2").prop("selected", true);
+    		alert("과일: " + $("#fruits").val());
+    		
+    		// checkbox
+    		var arrayGenderJquery = new Array();
+    		
+	        for (var i=0; i<$("input:checkbox[name=gender]").length; i++) {
+				if( $("input:checkbox[name=gender]").eq(i).is(":checked") == true){
+					alert( $("input:checkbox[name=gender]").eq(i).val() );
+					arrayGenderJquery.push( $("input:checkbox[name=gender]").eq(i).val() );
+				}
+	        }
+	        
+// 	        $("input:checkbox[name=hobby]").each(function (index) {
+// 	        	if($(this).is(":checked")==true){
+// 	            	alert($(this).val());
+// 	            	arrayHobbyJquery.push($(this).val());
+// 	            }
+// 	        });
+	        
+	        for (var i=0; i<arrayGenderJquery.length; i++) {
+	        	console.log(arrayGenderJquery[i]);
+	        }
+	        
+	        $("input:checkbox[name=gender]").eq(0).prop("checked", false);
+	        $("input:checkbox[name=gender]").eq(2).prop("checked", true);
+	        
+// 	        $("#run").prop("checked", false);
+// 	        $("#reading").prop("checked", true);
+
+			// radio
+			alert( $('input:radio[name=telecom]:checked').val() );
+	        $("input:radio[name=telecom]").eq(0).prop("checked", false);
+	        $("input:radio[name=telecom]").eq(1).prop("checked", true);
+	        alert( $('input:radio[name=telecom]:checked').val() );
+			
+	        
+    	});
+    	
+
+    	
+// javascript    	
+// 		document.getElementById("btnJavascript").onclick = function(){    	
+    	document.getElementById("btnJavascript").addEventListener("click", function() {
+			
+    		// input type=text
+    		alert( document.getElementById("name").value.trim() );
+    		document.getElementById("name").value = "전지현";
+    		alert( document.getElementById("name").value.trim() );
+    		
+    		// select
+    		alert( document.getElementById("fruits").value );
+    		document.getElementById("fruits").options[3].selected = true;
+    		alert( document.getElementById("fruits").value );
+    		
+    		//checkbox
+    		var arrayHobbyJavascript = new Array();
+	    	  
+	        for (var i=0; i<document.getElementsByName("gender").length; i++) {
+	            if (document.getElementsByName("gender")[i].checked == true) {
+	                alert(document.getElementsByName("gender")[i].value);
+	                arrayHobbyJavascript.push(document.getElementsByName("gender")[i].value);
+	            }
+	        }
+	        
+	        for (var i=0; i<arrayHobbyJavascript.length; i++) {
+	        	console.log(arrayHobbyJavascript[i]);
+	        }
+	        
+	        // 선택된 체크박스의 인텍스 값 가져오기
+	        
+			document.getElementsByName("gender")[0].checked = false;
+			document.getElementsByName("gender")[2].checked = true;
+
+			// radio
+			alert( document.querySelector("input[name='telecom']:checked").value );
+			document.getElementsByName("telecom")[0].checked = false;
+			document.getElementsByName("telecom")[1].checked = true;
+		
+    	});
+    	
+
+		
+	</script>
 </body>
 </html>
